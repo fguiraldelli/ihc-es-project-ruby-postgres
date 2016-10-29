@@ -1,0 +1,109 @@
+Rotas dos anúncios
+
+	Lista: 		GET		anuncios.json (retorna todos o registros do banco)
+	Busca: 		GET		anuncios.json?search=ipad (retorna registros que contenham a palavra "ipad" no título do anúncio)
+	Cadastrar:	POST	anuncios (insere um novo anúncio)
+	Alterar: 	PUT		anuncios/:id (altera um anuncio específicado em ":id")
+	Excluir:	DELETE  anuncios/:id (exclui o anúncio especificado em ":id")
+
+
+	Lista de anuncios (retorna todos os registros)
+	- GET anuncios.json
+		http://localhost:3000/anuncios.json
+		
+		retorno:
+		[
+		  {
+			"id": 4,
+			"titulo": "alugo quarto próximo a UFSCAR",
+			"descricao": "alugo quarto individual em república. Proximo a UFSCAR. Possui Internet",
+			"preco": 450,
+			"imagem": null,
+			"created_at": "2016-10-29T19:15:28.293Z",
+			"updated_at": "2016-10-29T19:15:28.293Z",
+			"url": "http://localhost:3000/anuncios/4.json"
+		  },
+		  {
+			"id": 3,
+			"titulo": "compro bicicleta com marcha",
+			"descricao": "compro moutain bike com marcha. Pago a vista!",
+			"preco": 250,
+			"imagem": null,
+			"created_at": "2016-10-29T19:09:27.110Z",
+			"updated_at": "2016-10-29T19:13:27.068Z",
+			"url": "http://localhost:3000/anuncios/3.json"
+		  },
+		  {
+			"id": 2,
+			"titulo": "troco ipad por notebook",
+			"descricao": "troco ipad air 32GB por notebook",
+			"preco": 1800,
+			"imagem": "",
+			"created_at": "2016-10-29T18:28:56.602Z",
+			"updated_at": "2016-10-29T18:28:56.602Z",
+			"url": "http://localhost:3000/anuncios/2.json"
+		  },
+		  {
+			"id": 1,
+			"titulo": "vendo mesa de madeira",
+			"descricao": "mesa de madeira 1,6 x 0,90",
+			"preco": 200,
+			"imagem": "",
+			"created_at": "2016-10-29T17:42:53.352Z",
+			"updated_at": "2016-10-29T17:42:53.352Z",
+			"url": "http://localhost:3000/anuncios/1.json"
+		  }
+		]
+	
+	
+
+	Busca de anúncios:
+	- GET anuncios.json/:search
+	ex: 
+
+		http://localhost:3000/anuncios.json?search=bicicleta
+
+		retorno:
+		[
+		  {
+			"id": 3,
+			"titulo": "compro bicicleta com marcha",
+			"descricao": "compro moutain bike com marcha. Pago a vista!",
+			"preco": 250,
+			"imagem": null,
+			"created_at": "2016-10-29T19:09:27.110Z",
+			"updated_at": "2016-10-29T19:13:27.068Z",
+			"url": "http://localhost:3000/anuncios/3.json"
+		  }
+		]
+
+	Cadastrar anúncio 
+	- POST	anuncios
+	ex.:
+		http://localhost:3000/anuncios
+
+		Entrada:
+		{
+		  "titulo": "alugo quarto próximo a UFSCAR",
+		  "descricao": "alugo quarto individual em república. Proximo a UFSCAR. Possui Internet",
+		  "preco":"450,00"
+		}
+			
+
+			
+	Alterar anúncio
+	- PUT	anuncios/:id 
+	ex.:
+		http://localhost:3000/anuncios/3
+		
+		Entrada:
+		{
+		  "preco": "320,00"
+		}
+		
+	Excluir anúncio
+	- DELETE  anuncios/:id 
+	
+	ex.:
+		http://localhost:3000/anuncios/3
+
