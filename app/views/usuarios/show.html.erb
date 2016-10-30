@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @usuario.token %>
+</p>
+
+<p>
+  <strong>Positivo:</strong>
+  <%= @usuario.positivo %>
+</p>
+
+<p>
+  <strong>Negativo:</strong>
+  <%= @usuario.negativo %>
+</p>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

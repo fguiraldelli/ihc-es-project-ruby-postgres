@@ -9,6 +9,7 @@
       <th>Descricao</th>
       <th>Preco</th>
       <th>Imagem</th>
+      <th>Token</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= anuncio.descricao %></td>
         <td><%= anuncio.preco %></td>
         <td><%= anuncio.imagem %></td>
+        <td><%= anuncio.token %></td>
         <td><%= link_to 'Show', anuncio %></td>
         <td><%= link_to 'Edit', edit_anuncio_path(anuncio) %></td>
         <td><%= link_to 'Destroy', anuncio, method: :delete, data: { confirm: 'Are you sure?' } %></td>

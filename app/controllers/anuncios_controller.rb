@@ -9,7 +9,11 @@ class AnunciosController < ActionController::Base
     if params[:search]
       @anuncios = Anuncio.search(params[:search]).order("created_at DESC")
     else
-      @anuncios = Anuncio.all.order('created_at DESC')
+      if params[:token]
+        @anuncios = Anuncio.myadvertise(params[:token]).order("created_at DESC")  
+      else
+        @anuncios = Anuncio.all.order('created_at DESC')
+      end  
     end
 
   end
@@ -79,6 +83,6 @@ class AnunciosController < ActionController::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anuncio_params
-      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem)
+      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :token)
     end
 end
