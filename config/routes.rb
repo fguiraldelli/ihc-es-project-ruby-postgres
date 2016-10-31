@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :anuncios
 
+  post 'avaliar' => 'usuarios#avaliar'
 
+  #get 'imagens/:id' => 'mostra_imagem'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

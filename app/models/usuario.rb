@@ -18,8 +18,11 @@ class Usuario < ActiveRecord::Base
 	end	
 
 	def self.search(token)
-	  # Title is for the above case, the OP incorrectly had 'name'
-	 	where("token LIKE ?", "%#{token}%")
+	   	where("token LIKE ?", "%#{token}%") 
+	end
+
+	def self.find_token(token)
+	   	where("token = ?", "#{token}").first
 	end
 
 end

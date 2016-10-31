@@ -13,7 +13,23 @@ class UsuariosController < ActionController::Base
     end
 
   end
+  
+  # POST /avaliar  ex.: {"token":"cnbfheurjfnw", "id":"7", "avaliacao":"+"}
+  def avaliar
+    @anuncio = Anuncio.find(params[:id])
 
+    @usuario = Usuario.find_token(@anuncio.token)
+
+    if params[:avaliacao] == "+"
+        @usuario.positivo += 1
+    elsif params[:avaliacao] == "-"
+        @usuario.negativo += 1
+    end
+    
+    @usuario.save        
+
+  end  
+ 
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
