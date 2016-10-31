@@ -121,21 +121,55 @@ Rotas dos usuários
 	Lista: 		GET		usuarios.json (retorna todos o registros do banco)
 	Busca: 		GET		usuarios.json?token=sdhskfsd979sdf (retorna o registro que contem o token "sdhskfsd979sdf")
 	Cadastrar:	POST	usuarios (insere um novo usuário)
-	
+	Avaliar:	POST	avaliar 
 	
 	Lista de usuarios (retorna todos os usuarios)
 	- GET usuarios.json
 		http://localhost:3000/usuarios.json
 		
 		retorno:
-	
+			[
+			  {
+				"id": 4,
+				"token": "AAABBB",
+				"positivo": 16,
+				"negativo": 1,
+				"meuspontos": 5,
+				"anuncios": 0,
+				"created_at": "2016-10-30T18:34:30.570Z",
+				"updated_at": "2016-10-31T00:47:07.716Z",
+				"url": "http://localhost:3000/usuarios/4.json"
+			  },
+			  {
+				"id": 3,
+				"token": "RFDTT",
+				"positivo": 32,
+				"negativo": 24,
+				"meuspontos": 3,
+				"anuncios": 1,
+				"created_at": "2016-10-30T18:34:01.306Z",
+				"updated_at": "2016-10-31T02:27:54.298Z",
+				"url": "http://localhost:3000/usuarios/3.json"
+			  }
+			]
 	
 
 	Busca de usuários:
 	- GET usuarios.json/:search
 	ex: 
-
 		http://localhost:3000/usuarios.json?token=sdhskfsd979sdf
+		Retorno
+			{
+				"id": 3,
+				"token": "RFDTT",
+				"positivo": 32,
+				"negativo": 24,
+				"meuspontos": 3,
+				"anuncios": 1,
+				"created_at": "2016-10-30T18:34:01.306Z",
+				"updated_at": "2016-10-31T02:27:54.298Z",
+				"url": "http://localhost:3000/usuarios/3.json"
+			  }
 
 	
 	Cadastrar usuarios 
@@ -162,7 +196,7 @@ Rotas dos usuários
 		}
 		Retorno:
 		{
-			"meuspontos":"5"
+			"meuspontos":5
 		}
 	
 		

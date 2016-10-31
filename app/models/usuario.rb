@@ -17,6 +17,11 @@ class Usuario < ActiveRecord::Base
 
 	end	
 
+
+	def anuncios
+		@anuncios = Anuncio.where("token = ?", "#{self.token}" ).count
+	end	
+
 	def self.search(token)
 	   	where("token LIKE ?", "%#{token}%") 
 	end
