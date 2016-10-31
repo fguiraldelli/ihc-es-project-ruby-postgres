@@ -172,7 +172,7 @@ Rotas dos usuários
 			  }
 
 	
-	Cadastrar usuarios 
+	Cadastrar usuários 
 	- POST	usuarios
 	ex.:
 		http://localhost:3000/usuarios
@@ -182,7 +182,7 @@ Rotas dos usuários
 		  "token":"sdhskfsd979sdf"
 		}
 			
-	Avaliar usuarios
+	Avaliar usuários
 	- POST avaliar
 	
 	ex.:
@@ -192,7 +192,7 @@ Rotas dos usuários
 		{
 		  "token":"sdhskfsd979sdf",
 		  "id":"7",
-		  "avaliacao":"+" ("+" e "-")
+		  "avaliacao":"+" ("+" ou "-")
 		}
 		Retorno:
 		{

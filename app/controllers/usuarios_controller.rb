@@ -49,6 +49,9 @@ class UsuariosController < ActionController::Base
   def create
     @usuario = Usuario.new(usuario_params)
 
+    @usuario.positivo = 1
+    @usuario.negativo = 1
+
     respond_to do |format|
       if @usuario.save
         format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
