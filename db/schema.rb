@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030152117) do
+ActiveRecord::Schema.define(version: 20161105180452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
 
   create_table "anuncios", force: :cascade do |t|
     t.string   "titulo"
     t.text     "descricao"
     t.float    "preco"
     t.binary   "imagem"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "token"
+    t.boolean  "negocio_fechado"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161030152117) do
     t.integer  "negativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "celular"
   end
 
 end

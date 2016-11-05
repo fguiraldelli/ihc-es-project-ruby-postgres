@@ -38,6 +38,8 @@ class AnunciosController < ActionController::Base
   # POST /anuncios.json
   def create
     @anuncio = Anuncio.new(anuncio_params)
+    @anuncio.negocio_fechado = false
+
 
     respond_to do |format|
       if @anuncio.save
@@ -83,6 +85,6 @@ class AnunciosController < ActionController::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anuncio_params
-      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :token)
+      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :token, :negocio_fechado)
     end
 end
