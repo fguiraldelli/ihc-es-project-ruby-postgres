@@ -4,21 +4,27 @@ class AnunciosController < ActionController::Base
   # GET /anuncios
   # GET /anuncios.json
   def index
-    @anuncios = Anuncio.all
+    #@anuncios = Anuncio.all
 
+    # busca ordenada por pontos do anunciante e data de criação, somente negocios NÃO fechados
     if params[:search]
-      @anuncios = Anuncio.search(params[:search]).order("created_at DESC")
+      @anuncios = Anuncio.search(params[:search]).sort_by{|obj| [obj.meuspontos, obj.created_at]}.reverse
     else
+      # busca meus anuncios
       if params[:token]
-        @anuncios = Anuncio.myadvertise(params[:token]).order("created_at DESC")  
+        @anuncios = Anuncio.meusanuncios(params[:token]).order("created_at DESC")  
       else
+        # listagem geral
         @anuncios = Anuncio.all.order('created_at DESC')
       end  
     end
 
   end
 
-
+  # def buscacomprador
+  #   @anuncios = Anuncio.buscacomprador(params[:search])
+  #   render json: @anuncios.count == 1 ? @anuncios.first : @anuncios 
+  # end  
 
   # GET /anuncios/1
   # GET /anuncios/1.json

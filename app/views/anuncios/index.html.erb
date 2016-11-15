@@ -1,32 +1,62 @@
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #0040FF;
+    color: white;
+}
+</style>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Anuncios</h1>
+<h1>Anuncios</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Imagem</th>
       <th>Titulo</th>
       <th>Descricao</th>
       <th>Preco</th>
-      <th>Imagem</th>
       <th>Token</th>
       <th>Negocio Fechado</th>
-      <th colspan="3"></th>
+      <th>Avaliação do Anunciante</th>
+      <th>Data do Anúncio</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @anuncios.each do |anuncio| %>
       <tr>
-        <td><%= anuncio.titulo %></td>
+<!--         <td><%= anuncio.imagem %></td> -->
+        <td><img alt="Embedded Image" src="data:image/jpeg;base64,<%= anuncio.imagem %>" height="84" width="auto"/></td>
+        <td><%= link_to anuncio.titulo, edit_anuncio_path(anuncio) %></td>
         <td><%= anuncio.descricao %></td>
         <td><%= anuncio.preco %></td>
-        <td><%= anuncio.imagem %></td>
         <td><%= anuncio.token %></td>
         <td><%= anuncio.negocio_fechado %></td>
-        <td><%= link_to 'Show', anuncio %></td>
-        <td><%= link_to 'Edit', edit_anuncio_path(anuncio) %></td>
-        <td><%= link_to 'Destroy', anuncio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= anuncio.meuspontos %></td>
+        <td><%= anuncio.created_at %></td>
+        <td><%= link_to 'Detalhes', anuncio %></td>
+<!--         <td><%= link_to 'Editar', edit_anuncio_path(anuncio) %></td> -->
+        <td><%= link_to 'Excluir', anuncio, method: :delete, data: { confirm: 'Deseja Continuar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +64,5 @@
 
 <br>
 
-<%= link_to 'New Anuncio', new_anuncio_path %>
+<%= link_to 'Novo Anuncio', new_anuncio_path %>
+

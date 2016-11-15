@@ -17,7 +17,8 @@
 
 <p>
   <strong>Imagem:</strong>
-  <%= @anuncio.imagem %>
+  <img alt="Embedded Image" src="data:image/jpeg;base64,<%= @anuncio.imagem %>" height="84" width="84" />
+  <%#= @anuncio.imagem %>
 </p>
 
 <p>
@@ -30,6 +31,11 @@
   <%= @anuncio.negocio_fechado %>
 </p>
 
+<p>
+  <strong>Avaliação do Anunciante:</strong>
+  <%= @anuncio.meuspontos %>
+</p>
 
-<%= link_to 'Edit', edit_anuncio_path(@anuncio) %> |
-<%= link_to 'Back', anuncios_path %>
+
+<%= link_to 'Editar', edit_anuncio_path(@anuncio) %> |
+<%= link_to 'Voltar', anuncios_path %>

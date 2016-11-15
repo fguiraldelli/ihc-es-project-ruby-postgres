@@ -1,0 +1,52 @@
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #0040FF;
+    color: white;
+}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Termos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Termo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @termos.each do |termo| %>
+      <tr>
+        <td><%= termo.termo %></td>
+        <td><%= link_to 'Detalhes', termo %></td>
+        <td><%= link_to 'Editar', edit_termo_path(termo) %></td>
+        <td><%= link_to 'Excluir', termo, method: :delete, data: { confirm: 'Deseja continuar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Termo', new_termo_path %>

@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  
+  resources :termos
   resources :usuarios
   resources :anuncios
 
+  get 'completar' => 'termos#buscartermos'
+
   post 'avaliar' => 'usuarios#avaliar'
+
+  #get 'buscar/:token' => 'usuarios#index'
+  #get 'buscar/:token' => 'usuarios#buscar'
+  #get 'buscacomprador' => 'anuncios#buscacomprador'
 
   #get 'imagens/:id' => 'mostra_imagem'
   # The priority is based upon order of creation: first created -> highest priority.

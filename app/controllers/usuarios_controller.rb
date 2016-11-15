@@ -1,6 +1,15 @@
 class UsuariosController < ActionController::Base
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
+  def buscar
+    @usuarios = Usuario.search(params[:token])
+
+    render json: @usuarios.count == 1 ? @usuarios.first : @usuarios 
+
+  end
+    
+
+
   # GET /usuarios
   # GET /usuarios.json
   def index
@@ -51,6 +60,7 @@ class UsuariosController < ActionController::Base
 
     @usuario.positivo = 1
     @usuario.negativo = 1
+    @usuario.celular  = "(15) 99#{Random.rand(100..899)}-#{Random.rand(1000..9999)}"
 
     respond_to do |format|
       if @usuario.save

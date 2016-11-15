@@ -1,6 +1,25 @@
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #0040FF;
+    color: white;
+}
+</style>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Usuarios</h1>
+<h1>Usuarios</h1>
 
 <table>
   <thead>
@@ -20,9 +39,9 @@
         <td><%= usuario.positivo %></td>
         <td><%= usuario.negativo %></td>
         <td><%= usuario.celular %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhes', usuario %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Excluir', usuario, method: :delete, data: { confirm: 'Deseja Continuar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +49,7 @@
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Novo Usuario', new_usuario_path %>
+
+
+

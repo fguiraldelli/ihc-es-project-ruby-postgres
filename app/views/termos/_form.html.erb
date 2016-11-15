@@ -1,0 +1,21 @@
+<%= form_for(@termo) do |f| %>
+  <% if @termo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@termo.errors.count, "error") %> prohibited this termo from being saved:</h2>
+
+      <ul>
+      <% @termo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :termo %><br>
+    <%= f.text_field :termo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
