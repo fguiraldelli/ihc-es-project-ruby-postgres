@@ -16,8 +16,7 @@ class TermosController < ActionController::Base
 
     resultado << ' ]'
 
-    resultado = ["cama", "mesa", "banho"]
-
+    
     render text: resultado 
 
   end  
