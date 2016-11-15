@@ -24,10 +24,14 @@ th {
 <table>
   <thead>
     <tr>
+      <th>Nome</th>
+      <th>Sexo</th>
+      <th>Celular</th>
+      <th>Id Instituicao</th>
+      <th>Id Facebook</th>
       <th>Token</th>
       <th>Positivo</th>
       <th>Negativo</th>
-      <th>Celular</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -35,10 +39,14 @@ th {
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
+        <td><%= usuario.nome %></td>
+        <td><%= usuario.sexo %></td>
+        <td><%= usuario.celular %></td>
+        <td><%= usuario.id_instituicao %></td>
+        <td><%= usuario.id_facebook %></td>
         <td><%= usuario.token %></td>
         <td><%= usuario.positivo %></td>
         <td><%= usuario.negativo %></td>
-        <td><%= usuario.celular %></td>
         <td><%= link_to 'Detalhes', usuario %></td>
         <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Excluir', usuario, method: :delete, data: { confirm: 'Deseja Continuar?' } %></td>

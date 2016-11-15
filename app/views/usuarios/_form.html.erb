@@ -11,6 +11,30 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.text_field :sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :celular %><br>
+    <%= f.text_field :celular %>
+  </div>
+  <div class="field">
+    <%= f.label :id_instituicao %><br>
+    <%= f.text_field :id_instituicao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_facebook %><br>
+    <%= f.text_field :id_facebook %>
+  </div>
+
   <div class="field">
     <%= f.label :token %><br>
     <%= f.text_field :token %>
@@ -24,10 +48,6 @@
     <%= f.number_field :negativo %>
   </div>
 
-  <div class="field">
-    <%= f.label :celular %><br>
-    <%= f.text_field :celular %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

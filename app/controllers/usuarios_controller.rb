@@ -105,6 +105,6 @@ class UsuariosController < ActionController::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:token, :positivo, :negativo, :celular)
+      params.require(:usuario).permit(:nome, :sexo, :celular, :id_instituicao, :id_facebook, :token, :positivo, :negativo)
     end
 end

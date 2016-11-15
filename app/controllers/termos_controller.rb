@@ -6,18 +6,11 @@ class TermosController < ActionController::Base
 
     @termos = Termo.buscartermos(params[:termo]).order("termo")
     
-    resultado = '[ '
+    resultado = Array.new
 
-    @termos.each do |elem|
-      resultado += '"'+ elem.termo + '", '
-    end
+    @termos.each { |elem| resultado << elem.termo }
 
-    resultado.slice!(resultado.length-2)
-
-    resultado << ' ]'
-
-    
-    render text: resultado 
+    render text: resultado
 
   end  
 
