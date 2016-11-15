@@ -4,7 +4,7 @@ class AnunciosController < ActionController::Base
   # GET /anuncios
   # GET /anuncios.json
   def index
-    #@anuncios = Anuncio.all
+    @anuncios = Anuncio.all
 
     # busca ordenada por pontos do anunciante e data de criação, somente negocios NÃO fechados
     if params[:search]
