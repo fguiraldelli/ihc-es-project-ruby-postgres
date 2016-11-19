@@ -30,4 +30,9 @@ class Usuario < ActiveRecord::Base
 	   	where("token = ?", "#{token}").first
 	end
 
+	def self.find_idFacebook(id_facebook)
+		where("id_facebook = ?", "#{id_facebook}").first
+	end	
+
+
 end

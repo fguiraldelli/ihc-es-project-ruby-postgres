@@ -1,9 +1,6 @@
 class Anuncio < ActiveRecord::Base
 
 	def self.search(search)
-	  # Title is for the above case, the OP incorrectly had 'name'
-	  # resolver problema de case e acento no collate do banco de dados	  
-	  # resolver problema de mais de um termo na busca
 
 	 	where("(upper(titulo) LIKE upper(?) or upper(descricao) LIKE upper(?)) and negocio_fechado = false ", "%#{search}%", "%#{search}%")
 	end
@@ -13,8 +10,10 @@ class Anuncio < ActiveRecord::Base
 	end	
 
 	# propriedade apenas leitura que retorna os pontos do anunciante
-	def meuspontos
-		if self.token? then Usuario.find_token(self.token).meuspontos end
+	def pontos_anunciante
+	
+		if !self.token.nil? then Usuario.find_token(self.token).meuspontos end
+
 	end		
 
 end

@@ -56,21 +56,29 @@ class UsuariosController < ActionController::Base
   # POST /usuarios
   # POST /usuarios.json
   def create
-    @usuario = Usuario.new(usuario_params)
+    
+    @usuario = Usuario.find_idFacebook(params[:id_facebook])
 
-    @usuario.positivo = 1
-    @usuario.negativo = 1
-    @usuario.celular  = "(15) 99#{Random.rand(100..899)}-#{Random.rand(1000..9999)}"
+    if !@usuario.nil?
+      self.update
+    else
+      @usuario = Usuario.new(usuario_params)
 
-    respond_to do |format|
-      if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
-        format.json { render :show, status: :created, location: @usuario }
-      else
-        format.html { render :new }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+      @usuario.positivo = 1
+      @usuario.negativo = 1
+      #@usuario.celular  = "(15) 99#{Random.rand(100..899)}-#{Random.rand(1000..9999)}"
+
+      respond_to do |format|
+        if @usuario.save
+          format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+          format.json { render :show, status: :created, location: @usuario }
+        else
+          format.html { render :new }
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
       end
     end
+
   end
 
   # PATCH/PUT /usuarios/1
