@@ -8,3 +8,5 @@
 4 - resolver acento e case insensitive...
 
 ok => 5 - login: tornar único pelo id do facebook (ou seja, se eu fizer post com um id que já tenha na base, tem que atualizar token, celular, universidade e não criar outro user)
+
+6 - quando o vendedor marcar fechado, outros users não podem ver mais aquele ad

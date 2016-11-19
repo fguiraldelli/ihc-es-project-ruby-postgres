@@ -8,7 +8,7 @@ class AnunciosController < ActionController::Base
 
     # busca ordenada por pontos do anunciante e data de criação, somente negocios NÃO fechados
     if params[:search]
-      @anuncios = Anuncio.search(params[:search]).sort_by{|obj| [obj.meuspontos, obj.created_at]}.reverse
+      @anuncios = Anuncio.search(params[:search]).sort_by{|obj| [obj.pontos_anunciante, obj.created_at]}.reverse
     else
       # busca meus anuncios
       if params[:token]
