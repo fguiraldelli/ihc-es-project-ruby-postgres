@@ -24,6 +24,7 @@ th {
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Nome</th>
       <th>Sexo</th>
       <th>Celular</th>
@@ -39,6 +40,7 @@ th {
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
+        <td><%= usuario.id %></td>
         <td><%= usuario.nome %></td>
         <td><%= usuario.sexo %></td>
         <td><%= usuario.celular %></td>

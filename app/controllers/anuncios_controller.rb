@@ -8,7 +8,7 @@ class AnunciosController < ActionController::Base
 
     # busca ordenada por pontos do anunciante e data de criação, somente negocios NÃO fechados
     if params[:search]
-      @anuncios = Anuncio.search(params[:search]).sort_by{|obj| [obj.pontos_anunciante, obj.created_at]}.reverse
+      @anuncios = Anuncio.search(params[:search]).sort_by{|obj| [obj.pontosanunciante, obj.created_at]}.reverse
     else
       # busca meus anuncios
       if params[:token]
@@ -44,6 +44,7 @@ class AnunciosController < ActionController::Base
   # POST /anuncios.json
   def create
     @anuncio = Anuncio.new(anuncio_params)
+    @anuncio.id_usuario = Usuario.find_token(@anuncio.token).id
     @anuncio.negocio_fechado = false
 
 
@@ -91,6 +92,6 @@ class AnunciosController < ActionController::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anuncio_params
-      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :token, :negocio_fechado)
+      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :token, :negocio_fechado, :id_usuario)
     end
 end
