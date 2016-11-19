@@ -12,7 +12,12 @@ class Anuncio < ActiveRecord::Base
 	# propriedade apenas leitura que retorna os pontos do anunciante
 	def pontos_anunciante
 	
-		if !self.token.nil? then Usuario.find_token(self.token).meuspontos end
+		if !self.token.nil? then 
+
+			@usuario = Usuario.find_token(self.token)
+
+			if !@usuario.nil? then	@usuario.meuspontos end
+		end
 
 	end		
 
