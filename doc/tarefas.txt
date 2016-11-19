@@ -1,7 +1,17 @@
 
 1 - pesquisa de anúncios precisa resolver busca por mais de um termo...
+- retirar artigos e preposições da string de pesquisa
+- separar termos em um array
+- interar o array para montar a pesquisa com um like para cada termo no titulo e descricao
+
 
 2 - autocompletar:  precisa alimentar a base de termos a partir de anúncios inseridos...
+- na insercao ou alteracao  separar termos
+- separacao deve ser em expressões e palavras
+- pesquisar na base de termos e incluir se não existir na base
+
+
+
 
 3 - avaliação: ajuste para impedir que o usuário faça varias avaliações para o mesmo anúncio...
 
@@ -9,4 +19,4 @@
 
 ok => 5 - login: tornar único pelo id do facebook (ou seja, se eu fizer post com um id que já tenha na base, tem que atualizar token, celular, universidade e não criar outro user)
 
-6 - quando o vendedor marcar fechado, outros users não podem ver mais aquele ad
+ok => 6 - quando o vendedor marcar fechado, outros users não podem ver mais aquele ad
