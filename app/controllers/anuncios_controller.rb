@@ -46,7 +46,8 @@ class AnunciosController < ActionController::Base
     @anuncio = Anuncio.new(anuncio_params)
     @anuncio.id_usuario = Usuario.find_token(@anuncio.token).id
     @anuncio.negocio_fechado = false
-
+    Termo.gravartermo(@anuncio.titulo)
+    #Termo.gravartermo(@anuncio.descricao)
 
     respond_to do |format|
       if @anuncio.save
