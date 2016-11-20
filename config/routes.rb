@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :anuncios
 
-  get 'atualizarusuarios' => 'administracao#atualizarusuarios'
-
   get 'completar' => 'termos#buscartermos'
 
   post 'avaliar' => 'usuarios#avaliar'

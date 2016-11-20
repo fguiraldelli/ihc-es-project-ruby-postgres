@@ -1,5 +1,5 @@
 
-=> 1 - pesquisa de anúncios precisa resolver busca por mais de um termo...
+ok => 1 - pesquisa de anúncios precisa resolver busca por mais de um termo...
 - retirar artigos e preposições da string de pesquisa
 - separar termos em um array
 - interar o array para montar a pesquisa com um like para cada termo no titulo e descricao
@@ -15,12 +15,9 @@
 - fazer uma tabela que registre o token do avaliador e o id anuncio do avaliado (ou token tbem...)
 
 
-=> 4 - resolver acento e case insensitive...
+ok => 4 - resolver acento e case insensitive...
 - case: ilike
 - acento :
-http://mecanicamente.blogspot.com.br/2009/03/case-insensitive-e-accent-insensitive.html
-http://www.dicas-l.com.br/arquivo/consultas_case-insensitive_no_postgresql_e_no_mysql.php#.WC_vEdUrLIV
-
 
 ok => 5 - login: tornar único pelo id do facebook (ou seja, se eu fizer post com um id que já tenha na base, tem que atualizar token, celular, universidade e não criar outro user)
 
@@ -29,4 +26,4 @@ ok => 6 - quando o vendedor marcar fechado, outros users não podem ver mais aqu
 
 ok => 7 - anuncio deve conter o id_usuario ao inves do token... 
 
-8 - app não está enviando "celular" e "id_instituicao"
+ok => 8 - app não está enviando "celular" e "id_instituicao"

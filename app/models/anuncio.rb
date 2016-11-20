@@ -1,10 +1,18 @@
 class Anuncio < ActiveRecord::Base
 
 	def self.search(search)
-		#quebrar os search em varios termos e gerar 
-		sql = "(upper(titulo) LIKE upper(?) or upper(descricao) LIKE upper(?)) and negocio_fechado = false " 
+		
+		sqlwhere = ""
 
-	 	where("(upper(titulo) LIKE upper(?) or upper(descricao) LIKE upper(?)) and negocio_fechado = false", "%#{search}%", "%#{search}%")
+		arrtermos = search.split(' ')
+
+		arrtermos.each { |elem| sqlwhere << "norm(titulo) LIKE norm('%#{elem}%') or norm(descricao) LIKE norm('%#{elem}%') or " }
+
+		sqlwhere = sqlwhere[0...-3]
+
+		sqlwhere = sqlwhere + " and negocio_fechado = false"
+
+	 	where(sqlwhere)
 	end
 
 	def self.meusanuncios(token)
@@ -16,13 +24,8 @@ class Anuncio < ActiveRecord::Base
 
 	# propriedade apenas leitura que retorna os pontos do anunciante
 	def pontosanunciante
-		
-		if !self.token.nil? then 
 
-			@usuario = Usuario.find_token(self.token)
-
-			if !@usuario.nil? then	@usuario.meuspontos end
-		end
+		Usuario.find(self.id_usuario).meuspontos
 
 	end		
 

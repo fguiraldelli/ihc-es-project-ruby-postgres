@@ -27,7 +27,7 @@ class UsuariosController < ActionController::Base
   def avaliar
     @anuncio = Anuncio.find(params[:id])
 
-    @usuario = Usuario.find_token(@anuncio.token)
+    @usuario = Usuario.find(@anuncio.id_usuario)
 
     if params[:avaliacao] == "+"
         @usuario.positivo += 1
@@ -66,7 +66,7 @@ class UsuariosController < ActionController::Base
 
       @usuario.positivo = 1
       @usuario.negativo = 1
-      @usuario.celular  = "(15) 99#{Random.rand(100..899)}-#{Random.rand(1000..9999)}"
+      #@usuario.celular  = "(15) 99#{Random.rand(100..899)}-#{Random.rand(1000..9999)}"
 
       respond_to do |format|
         if @usuario.save
