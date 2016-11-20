@@ -8,9 +8,6 @@ Rails.application.routes.draw do
 
   post 'avaliar' => 'usuarios#avaliar'
 
-  #get 'buscar/:token' => 'usuarios#index'
-  #get 'buscar/:token' => 'usuarios#buscar'
-  #get 'buscacomprador' => 'anuncios#buscacomprador'
 
   #get 'imagens/:id' => 'mostra_imagem'
   # The priority is based upon order of creation: first created -> highest priority.

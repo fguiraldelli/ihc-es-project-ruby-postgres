@@ -1,14 +1,6 @@
 class UsuariosController < ActionController::Base
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
-  def buscar
-    @usuarios = Usuario.search(params[:token])
-
-    render json: @usuarios.count == 1 ? @usuarios.first : @usuarios 
-
-  end
-    
-
 
   # GET /usuarios
   # GET /usuarios.json

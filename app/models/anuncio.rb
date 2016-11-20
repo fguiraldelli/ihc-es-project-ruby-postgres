@@ -10,13 +10,13 @@ class Anuncio < ActiveRecord::Base
 
 		sqlwhere = sqlwhere[0...-3]
 
-		sqlwhere = sqlwhere + " and negocio_fechado = false"
+		sqlwhere = "( " + sqlwhere + " ) and negocio_fechado = false"
 
 	 	where(sqlwhere)
 	end
 
 	def self.meusanuncios(token)
-		#buscar o id_usuario em Usuarios pelo token
+
 		id_usuario = Usuario.find_token(token).id
 
 		where("id_usuario = ?", "#{id_usuario}") 

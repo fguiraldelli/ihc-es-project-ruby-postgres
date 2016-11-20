@@ -19,7 +19,7 @@ class Usuario < ActiveRecord::Base
 
 
 	def anuncios
-		@anuncios = Anuncio.where("token = ?", "#{self.token}" ).count
+		@anuncios = Anuncio.where("id_usuario = ?", "#{self.id}" ).count
 	end	
 
 	def self.search(token)
