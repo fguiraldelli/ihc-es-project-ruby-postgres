@@ -1,7 +1,7 @@
 class Termo < ActiveRecord::Base
 
 	def self.buscartermos(termo)
-	   	where("termo LIKE ?", "%#{termo}%") 
+	   	where("norm(termo) LIKE norm(?)", "%#{termo}%") 
 	end
 
 	def self.gravartermo(frase)
