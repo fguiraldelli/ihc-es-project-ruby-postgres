@@ -27,3 +27,52 @@ ok => 6 - quando o vendedor marcar fechado, outros users não podem ver mais aqu
 ok => 7 - anuncio deve conter o id_usuario ao inves do token... 
 
 ok => 8 - app não está enviando "celular" e "id_instituicao"
+
+------------------------------------------------------------------------------------
+MVP 2
+Requisitos Funcionais
+
+RF1. Fluxo de negociação por chat interno (ver mockup);
+
+ok => RF2. Permitir adicionar mais fotos (entre 1 e 5) por anúncio;
+
+
+Tipos de anuncio: 
+
+	criar campo na tabela de anuncios (char d, l, e, c, v)
+
+	RF3. Anúncios do tipo “doação”, sem preço. 
+		- a tela deverá mostrar doação no lugar do preço.
+
+
+	RF4. Anúncios do tipo “comércio local”: agenda do vendedor sem o fluxo “fechar negócio”, com chat para dúvidas, tabela de itens+preço, e pontos de encontro por data de exposição;
+		- campo byte com dias da semana ou na descrição 		
+
+	RF5. Anúncios do tipo “evento”: sem fluxo “fechar negócio”, com chat, contato e pontos de venda, ordenando na busca por data de evento ao invés de data de publicação;
+		- campo data do evento
+
+
+ok => RF6. Exibir tempo de anúncio (“n h[oras]/d[ias]/s[emanas]/m[eses]”);
+
+ok => RF7. Exibir na tela inicial anúncios com maior interação do local atual (universidade);
+	ok -> criar campo visualizacoes
+	ok -> listar dos n mais visualizacoes por local
+	ok -> incrementar visualizacoes quando entrar no detalhes do anuncio;
+
+RF8. Opção de perfil “lojista” ao fazer login (ver mockup);
+	
+
+RF9. Perfil lojista com tela inicial mostrando anúncios ordenados por tempo ou valor e fluxo de oferta (mockup);
+
+Requisitos Não Funcionais
+RNF1. Incrementar logs e informações de visualização de anúncio;
+
+RNF2. Analytics no aplicativo;
+
+RNF3. Upload e download de imagens em segundo plano.
+
+
+
+1111100
+0101000
+1010100

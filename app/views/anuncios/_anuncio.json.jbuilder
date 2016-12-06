@@ -1,2 +1,2 @@
-json.extract! anuncio, :id, :titulo, :descricao, :preco, :imagem, :negocio_fechado, :pontosanunciante, :id_usuario,:created_at, :updated_at
+json.extract! anuncio, :id, :titulo, :descricao, :preco, :negocio_fechado, :pontosanunciante, :id_usuario, :tempoanuncio, :visualizacoes, :created_at, :updated_at, :imagem, :imagem2, :imagem3, :imagem4, :imagem5
 json.url anuncio_url(anuncio, format: :json)

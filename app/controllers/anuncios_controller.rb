@@ -1,23 +1,28 @@
 class AnunciosController < ActionController::Base
   before_action :set_anuncio, only: [:show, :edit, :update, :destroy]
 
+
   # GET /anuncios
   # GET /anuncios.json
   def index
-    @anuncios = Anuncio.all
+    #@anuncios = Anuncio.all
 
     # busca ordenada por pontos do anunciante e data de criação, somente negocios NÃO fechados
     if params[:search]
       @anuncios = Anuncio.search(params[:search]).sort_by{|obj| [obj.pontosanunciante, obj.created_at]}.reverse
-    else
+    
+    elsif params[:token]
       # busca meus anuncios
-      if params[:token]
-        @anuncios = Anuncio.meusanuncios(params[:token]).order("created_at DESC")  
-      else
-        # listagem geral
-        @anuncios = Anuncio.all.order('created_at DESC')
-      end  
-    end
+       @anuncios = Anuncio.meusanuncios(params[:token]).order("created_at DESC")  
+
+    elsif params[:id_local]
+
+      @anuncios = Anuncio.maispopulares(:id_local)
+
+    else  
+      # listagem geral
+      @anuncios = Anuncio.all.order('created_at DESC')
+    end  
 
   end
 
@@ -29,6 +34,8 @@ class AnunciosController < ActionController::Base
   # GET /anuncios/1
   # GET /anuncios/1.json
   def show
+    @anuncio.visualizacoes += 1
+    @anuncio.save
   end
 
   # GET /anuncios/new
@@ -46,6 +53,7 @@ class AnunciosController < ActionController::Base
     @anuncio = Anuncio.new(anuncio_params)
     @anuncio.id_usuario = Usuario.find_token(@anuncio.token).id
     @anuncio.negocio_fechado = false
+    @anuncio.visualizacoes = 0
     Termo.gravartermo(@anuncio.titulo)
     #Termo.gravartermo(@anuncio.descricao)
 
@@ -89,10 +97,11 @@ class AnunciosController < ActionController::Base
     # Use callbacks to share common setup or constraints between actions.
     def set_anuncio
       @anuncio = Anuncio.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anuncio_params
-      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :token, :negocio_fechado, :id_usuario)
+      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :imagem2, :imagem3, :imagem4, :imagem5, :token, :negocio_fechado, :id_usuario)
     end
 end
