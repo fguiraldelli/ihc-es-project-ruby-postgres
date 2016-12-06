@@ -73,6 +73,3 @@ RNF3. Upload e download de imagens em segundo plano.
 
 
 
-1111100
-0101000
-1010100
