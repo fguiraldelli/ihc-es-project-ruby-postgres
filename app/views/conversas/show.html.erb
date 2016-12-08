@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id Anuncio:</strong>
+  <%= @conversa.id_anuncio %>
+</p>
+
+<p>
+  <strong>Id Usuario Remetente:</strong>
+  <%= @conversa.id_usuario_remetente %>
+</p>
+
+<p>
+  <strong>Mensagem:</strong>
+  <%= @conversa.mensagem %>
+</p>
+
+<%= link_to 'Editar', edit_conversa_path(@conversa) %> |
+<%= link_to 'Voltar', conversas_path %>

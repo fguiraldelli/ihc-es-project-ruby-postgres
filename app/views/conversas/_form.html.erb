@@ -1,0 +1,29 @@
+<%= form_for(@conversa) do |f| %>
+  <% if @conversa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conversa.errors.count, "error") %> prohibited this conversa from being saved:</h2>
+
+      <ul>
+      <% @conversa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_anuncio %><br>
+    <%= f.number_field :id_anuncio %>
+  </div>
+  <div class="field">
+    <%= f.label :id_usuario_remetente %><br>
+    <%= f.number_field :id_usuario_remetente %>
+  </div>
+  <div class="field">
+    <%= f.label :mensagem %><br>
+    <%= f.text_field :mensagem %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

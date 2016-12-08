@@ -1,0 +1,1 @@
+json.partial! "conversas/conversa", conversa: @conversa

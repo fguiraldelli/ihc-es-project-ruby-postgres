@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Conversas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id Conversa</th>
+      <th>Id Anúncio</th>
+      <th>Id Usuário Remetente</th>
+      <th>Mensagem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conversas.each do |conversa| %>
+      <tr>
+        <td><%= conversa.id %></td>
+        <td><%= conversa.id_anuncio %></td>
+        <td><%= conversa.id_usuario_remetente %></td>
+        <td><%= conversa.mensagem %></td>
+        <td><%= link_to 'Detalhes', conversa %></td>
+        <td><%= link_to 'Editar', edit_conversa_path(conversa) %></td>
+        <td><%= link_to 'Excluir', conversa, method: :delete, data: { confirm: 'Confirma a exclusão?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Conversa', new_conversa_path %>

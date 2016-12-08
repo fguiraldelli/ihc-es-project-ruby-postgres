@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207022555) do
+ActiveRecord::Schema.define(version: 20161208033617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20161207022555) do
     t.string   "tipoanuncio",     limit: 1
     t.datetime "datahoraevento"
     t.string   "diassemana",      limit: 7
+  end
+
+  create_table "conversas", force: :cascade do |t|
+    t.integer  "id_anuncio"
+    t.integer  "id_usuario_remetente"
+    t.string   "mensagem"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "termos", force: :cascade do |t|

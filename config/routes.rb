@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :conversas
   resources :termos
   resources :usuarios
   resources :anuncios
