@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'completar' => 'termos#buscartermos'
 
+  get 'fotosanuncio' => 'anuncios#fotos'
+
   post 'avaliar' => 'usuarios#avaliar'
 
 

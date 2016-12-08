@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206032244) do
+ActiveRecord::Schema.define(version: 20161207022555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20161206032244) do
     t.text     "descricao"
     t.float    "preco"
     t.binary   "imagem"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "token"
     t.boolean  "negocio_fechado"
     t.integer  "id_usuario"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20161206032244) do
     t.binary   "imagem4"
     t.binary   "imagem5"
     t.integer  "visualizacoes"
+    t.string   "tipoanuncio",     limit: 1
+    t.datetime "datahoraevento"
+    t.string   "diassemana",      limit: 7
   end
 
   create_table "termos", force: :cascade do |t|

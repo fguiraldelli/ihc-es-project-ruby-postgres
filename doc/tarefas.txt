@@ -39,16 +39,16 @@ ok => RF2. Permitir adicionar mais fotos (entre 1 e 5) por anúncio;
 
 Tipos de anuncio: 
 
-	criar campo na tabela de anuncios (char d, l, e, c, v)
+	criar campo "tipoanuncio" na tabela de anuncios (char d, l, e, c, v)
 
-	RF3. Anúncios do tipo “doação”, sem preço. 
+	ok => RF3. Anúncios do tipo “doação”, sem preço. 
 		- a tela deverá mostrar doação no lugar do preço.
 
 
-	RF4. Anúncios do tipo “comércio local”: agenda do vendedor sem o fluxo “fechar negócio”, com chat para dúvidas, tabela de itens+preço, e pontos de encontro por data de exposição;
-		- campo byte com dias da semana ou na descrição 		
+	ok => RF4. Anúncios do tipo “comércio local”: agenda do vendedor sem o fluxo “fechar negócio”, com chat para dúvidas, tabela de itens+preço, e pontos de encontro por data de exposição;
+		- campo string com dias da semana ou na descrição 		
 
-	RF5. Anúncios do tipo “evento”: sem fluxo “fechar negócio”, com chat, contato e pontos de venda, ordenando na busca por data de evento ao invés de data de publicação;
+	ok => RF5. Anúncios do tipo “evento”: sem fluxo “fechar negócio”, com chat, contato e pontos de venda, ordenando na busca por data de evento ao invés de data de publicação;
 		- campo data do evento
 
 
@@ -72,4 +72,7 @@ RNF2. Analytics no aplicativo;
 RNF3. Upload e download de imagens em segundo plano.
 
 
+* melhorias
 
+- Paginar lista de pesquisas...
+- implementar thumbnail

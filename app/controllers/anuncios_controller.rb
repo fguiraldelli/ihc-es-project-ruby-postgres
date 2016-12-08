@@ -2,6 +2,13 @@ class AnunciosController < ActionController::Base
   before_action :set_anuncio, only: [:show, :edit, :update, :destroy]
 
 
+  # rota específica para trazer as 4 fotos restante
+  def fotos
+    #implementar ...
+    @anuncio = Anuncio.find(params[:id])
+    render json: @anuncio.imagem
+  end  
+
   # GET /anuncios
   # GET /anuncios.json
   def index
@@ -26,10 +33,6 @@ class AnunciosController < ActionController::Base
 
   end
 
-  # def buscacomprador
-  #   @anuncios = Anuncio.buscacomprador(params[:search])
-  #   render json: @anuncios.count == 1 ? @anuncios.first : @anuncios 
-  # end  
 
   # GET /anuncios/1
   # GET /anuncios/1.json
@@ -102,6 +105,6 @@ class AnunciosController < ActionController::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anuncio_params
-      params.require(:anuncio).permit(:titulo, :descricao, :preco, :imagem, :imagem2, :imagem3, :imagem4, :imagem5, :token, :negocio_fechado, :id_usuario)
+      params.require(:anuncio).permit(:titulo, :descricao, :preco, :diassemana,:tipoanuncio,:datahoraevento, :imagem, :imagem2, :imagem3, :imagem4, :imagem5, :token, :negocio_fechado, :id_usuario)
     end
 end
