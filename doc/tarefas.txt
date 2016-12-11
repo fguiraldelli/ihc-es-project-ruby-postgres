@@ -32,7 +32,7 @@ ok => 8 - app não está enviando "celular" e "id_instituicao"
 MVP 2
 Requisitos Funcionais
 
-RF1. Fluxo de negociação por chat interno (ver mockup);
+ok => RF1. Fluxo de negociação por chat interno (ver mockup);
 
 ok => RF2. Permitir adicionar mais fotos (entre 1 e 5) por anúncio;
 
