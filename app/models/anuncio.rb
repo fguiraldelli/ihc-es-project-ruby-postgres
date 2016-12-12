@@ -21,6 +21,11 @@ class Anuncio < ActiveRecord::Base
 		where("tipoanuncio = 'e' and datahoraevento >= '#{Time.now}'").order("datahoraevento")
 	end	
 
+	def self.comerciolocal(id_local)
+
+		where("tipoanuncio = 'l' ")
+	end	
+
 
 	def self.meusanuncios(token)
 

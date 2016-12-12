@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'eventos' => 'anuncios#eventos'
 
+  get 'comerciolocal' => 'anuncios#comerciolocal'
+
 
   #get 'imagens/:id' => 'mostra_imagem'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -18,6 +18,16 @@ class AnunciosController < ActionController::Base
     end  
   end
 
+  def comerciolocal 
+
+    if params[:id_local]
+      @anuncios = Anuncio.comerciolocal(:id_local)
+      
+      render json: @anuncios.to_json 
+
+    end  
+
+  end  
 
   # GET /anuncios
   # GET /anuncios.json
