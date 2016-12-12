@@ -10,10 +10,17 @@ class Anuncio < ActiveRecord::Base
 
 		sqlwhere = sqlwhere[0...-3]
 
-		sqlwhere = "( " + sqlwhere + " ) and negocio_fechado = false"
+		sqlwhere = "( " + sqlwhere + " ) and negocio_fechado = false and tipoanuncio = 'c'"
 
 	 	where(sqlwhere)
 	end
+
+
+	def self.eventos(id_local)
+
+		where("tipoanuncio = 'e' and datahoraevento >= '#{Time.now}'").order("datahoraevento")
+	end	
+
 
 	def self.meusanuncios(token)
 
@@ -31,7 +38,7 @@ class Anuncio < ActiveRecord::Base
 
 	# retorna os cinco anuncios mais visualizados
 	def self.maispopulares(id_local)
-		# falta implementar id_local criar campo e filtrar
+		# falta implementar id_local é o id_instituicao
 		Anuncio.order('visualizacoes DESC').first(5) 
 
 	end	

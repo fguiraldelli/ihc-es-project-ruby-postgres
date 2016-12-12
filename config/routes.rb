@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post 'avaliar' => 'usuarios#avaliar'
 
+  get 'eventos' => 'anuncios#eventos'
+
 
   #get 'imagens/:id' => 'mostra_imagem'
   # The priority is based upon order of creation: first created -> highest priority.

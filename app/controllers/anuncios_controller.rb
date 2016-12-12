@@ -9,6 +9,16 @@ class AnunciosController < ActionController::Base
     render json: @anuncio.imagem
   end  
 
+  def eventos
+    if params[:id_local]
+      @anuncios = Anuncio.eventos(:id_local)
+      
+      render json: @anuncios.to_json 
+
+    end  
+  end
+
+
   # GET /anuncios
   # GET /anuncios.json
   def index
